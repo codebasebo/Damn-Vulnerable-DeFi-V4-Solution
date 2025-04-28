@@ -11,7 +11,8 @@ contract FlashLoanReceiver is IERC3156FlashBorrower {
     constructor(address _pool) {
         pool = _pool;
     }
-
+    // This function is called by the pool when a flash loan is executed
+    // It does not check if caller is the owner of the contract.
     function onFlashLoan(address, address token, uint256 amount, uint256 fee, bytes calldata)
         external
         returns (bytes32)
